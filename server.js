@@ -20,6 +20,15 @@ app.get('/list_user', function (req, res) {
 app.get('/listUsers', function (req, res) {
     fs.readFile("user.json", 'utf8', function (err, data) {
         console.log( data );
+        res.header('Access-Control-Allow-Origin', '*');
+        res.send(data);
+    });
+})
+
+app.get('/listData', function (req, res) {
+    fs.readFile("data.json", 'utf8', function (err, data) {
+        console.log( data );
+        res.header('Access-Control-Allow-Origin', '*');
         res.end( data );
     });
 })
